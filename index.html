@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <title>My first chart with Highcharts</title>
+        <link href="styles/style.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"> </script>
+        
+        <script src="js/highcharts.js"></script>
+        
+        <script src="js/themes/default.js"></script>
+
+</head>
+<body>
+
+<h1>Comparing the Education Level in Florida: General Population vs. Hispanic Population</h1>
+
+<h3>By: Carina Daidone</h3>
+
+<p>The population in the state of Florida has seen a huge shift towards a larger Hispanic population. With this in mind, I took into consideration the education level of the general Florida population compared to the specific Hispanic population. In particular, does the Hispanic population follow the trend of the general population with more females than males holding a high school degree? Do more females than males in the Hispanic population hold a bachelor's degree or higher?</p>
+
+<p id="source">Source: <a href="http://www.pewresearch.org/fact-tank/2015/06/25/u-s-hispanic-population-growth-surge-cools/">Pew Research Center: "Hispanic population reaches record 55 million, but growth has cooled"</a></p>
+
+<!-- add the div and the code below this comment -->
+<div id="container" style="width:100%; height:400px;"></div>
+
+<script>
+$(function () {
+    $('#container').highcharts({
+        title: {
+            text: 'Education Level in Florida, By Sex (25 yrs old and up)',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: Census.gov',
+            x: -20
+        },
+        xAxis: {
+            categories: ['Less than High School', 'High School', 'Associates/Some College', 'Bachelors Degree or Higher']
+        },
+        yAxis: {
+            title: {
+                text: 'Population in Millions'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: ' million'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'Male',
+            data: [.95, 1.87, 1.8, 1.74]
+        }, {
+            name: 'Female',
+            data: [.9, 2.08, 2.17, 1.77]
+        }]
+    });
+});
+</script>
+
+<p id="source">Source: <a href="http://www.census.gov/easystats/application?ezsts=934978">U.S. Census, Florida Education Easy Stats</a></p>
+
+<p>In general, the population within Florida favors toward more females over males holding any kind of degree. The only category in which the number of males are greater than females is the "less than high school" category.</p>
+
+<div id="chart" style="width:100%; height:500px;"></div>
+
+<script>
+$(function () {
+    $('#chart').highcharts({
+
+        chart: {
+            type: 'column'
+        },
+
+        title: {
+            text: 'Hispanic Education Level in Florida, by Sex (25 years old and up)'
+        },
+
+        xAxis: {
+            categories: ['Less than High School', 'High School', 'Associates/Some College', 'Bachelors Degree or Higher']
+        },
+
+        yAxis: {
+            allowDecimals: false,
+            min: 0,
+            title: {
+                text: 'Hispanic Population in Thousands'
+            }
+        },
+
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.x + '</b><br/>' +
+                    this.series.name + ': ' + this.y + '<br/>' +
+                    'Total: ' + this.point.stackTotal;
+            }
+        },
+
+        plotOptions: {
+            column: {
+                stacking: 'normal'
+            }
+        },
+
+        series: [{
+            name: 'Male',
+            data: [352393, 394973, 323438, 267623],
+            stack: 'male'
+        }, {
+            name: 'Female',
+            data: [329199, 402754, 387611, 317162],
+            stack: 'male'
+        }]
+    });
+});
+</script>
+	
+<p id="source">Source: <a href="http://www.census.gov/easystats/application?ezsts=934978">U.S. Census, Florida Education Easy Stats</a></p>
+
+<p> The same education level trends found within the general population is continued within the Hispanic population. Also, like the rest of the Florida population, there are more high school degrees awarded than college degrees.</p>
+
+</body>
+</html>

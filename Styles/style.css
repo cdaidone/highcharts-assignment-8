@@ -1,0 +1,33 @@
+body {
+	font-family: Verdana, Arial, Sans-Serif;
+	margin: 3em 5em;
+	}
+
+h1, h3 {
+	text-align: center;
+	font-family: Georgia, "Times New Roman", Serif;
+	}
+
+h1 {
+	color: #89afd6;
+	}		
+
+h3 {
+	color: #fff;
+	}
+
+#container {
+	margin-top: 3em;
+	margin-bottom: 1em;
+	}
+
+#source {
+	text-align: center;
+	margin-bottom: 1em;
+	font-size: 12px;
+	}
+
+#chart {
+	margin-top: 3em;
+	margin-bottom: 1em;
+	}		
